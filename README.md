@@ -1,139 +1,157 @@
 # python-tutorial-by-Vamei
 
 - Python基础（上）
-> 添加注释：#!/usr/bin/env python 变成可执行脚本
-修改文件权限：chmod 755 hello.py （r:4 w:2 x:1）
-执行脚本：./hello.py （仅linux系统）
+    - 添加注释：#!/usr/bin/env python 变成可执行脚本
+    - 修改文件权限：chmod 755 hello.py （r:4 w:2 x:1）
+    - 执行脚本：./hello.py （仅linux系统）
 
 - Python基础（下）
-> 循环：
+    - 循环：
 
-    for 元素 in 序列:
-        statement
+            for 元素 in 序列:
+                statement
 
-    while 条件:
-        statement
+            while 条件:
+                statement
 
-    for i in range(10):
-        if i == 2:
-            continue
-        print i
+            for i in range(10):
+                if i == 2:
+                    continue
+                print i
 
-> 函数：
-1、值传递与指针传递
-2、类、属性
-3、方法
-4、继承
+    - 函数：
 
-> 面向对象的进一步拓展：
-1、调用其他信息
-2、__init()__
-3、对象的性质
-4、内置函数：dir() 查询属性和 help()查询说明文档
+            1、值传递与指针传递
+            2、类、属性
+            3、方法
+            4、继承
+
+- 面向对象的进一步拓展：
+
+        1、调用其他信息
+        2、__init()__
+        3、对象的性质
+        4、内置函数：dir() 查询属性和 help()查询说明文档
 
 - Python进阶(上)
-> 字典：
-    >>>print dic.keys()           # 返回dic所有的键
-    >>>print dic.values()         # 返回dic所有的值
-    >>>print dic.items()          # 返回dic所有的元素（键值对）
-    >>>dic.clear()                # 清空dic，dict变为{}
-    >>>del dic['tom']             # 删除 dic 的‘tom’元素
-    >>>print len(dic)             # 字典中元素个数
-> 文本文件的输入输出:
-    文本读取
-    >>>f = open('test.txt','r')
-    >>>content = f.read(N)
-    >>>content = f.readline()
-    >>>content = f.readlines()
-    文本写入
-    >>>f.write('I like apple!\n')
-    关闭文件
-    >>>f.close()
-> 模块：
-    模块引入方式：
-    import a as b             # 引入模块a，并将模块a重命名为b
-    from a import function1   # 从模块a中引入function1对象。
-    from a import *           # 从模块a中引入所有对象。
-    功能相似的模块放在同一个文件夹this_dir里：import this_dir.module
-    搜索路径：
-    程序所在的文件夹
-    操作系统环境变量PYTHONPATH所包含的路径
-    标准库的安装路径
-> 函数参数传递：传递方式可混合，顺序原则为：先位置，再关键字，再包裹位置，再包裹关键字。
+    - 字典：
+
+            >>>print dic.keys()           # 返回dic所有的键
+            >>>print dic.values()         # 返回dic所有的值
+            >>>print dic.items()          # 返回dic所有的元素（键值对）
+            >>>dic.clear()                # 清空dic，dict变为{}
+            >>>del dic['tom']             # 删除 dic 的‘tom’元素
+            >>>print len(dic)             # 字典中元素个数
+    - 文本文件的输入输出:
+
+            文本读取
+            >>>f = open('test.txt','r')
+            >>>content = f.read(N)
+            >>>content = f.readline()
+            >>>content = f.readlines()
+
+            文本写入
+            >>>f.write('I like apple!\n')
+
+            关闭文件
+            >>>f.close()
+
+    - 模块：
+        - 模块引入方式：
+
+                import a as b             # 引入模块a，并将模块a重命名为b
+                from a import function1   # 从模块a中引入function1对象。
+                from a import *           # 从模块a中引入所有对象。
+                    功能相似的模块放在同一个文件夹this_dir里：import this_dir.module
+        - 搜索路径：
+
+                程序所在的文件夹
+                操作系统环境变量PYTHONPATH所包含的路径
+                标准库的安装路径
+
+    - 函数参数传递：传递方式可混合，顺序原则为：先位置，再关键字，再包裹位置，再包裹关键字。
 
 - Python进阶（下）
-> 循环设计：range、enumerate、zip
-> 循环对象: 包含有一个next()方法的对象
-  迭代器: 要将循环对象转换成迭代器(iterator)。这一转换是通过使用iter()函数实现的。
-  生成器：生成器的编写方法和函数定义类似，只是在return的地方改为yield。
-  表推导：表推导(list comprehension)是快速生成表的方法。
-> 函数对象：lambda函数、函数作为参数传递、
-    map()函数、filter()函数、reduce()函数
-> 错误处理：
-异常处理：
-抛出异常：如果无法将异常交给合适的对象，异常将继续向上层抛出，直到被捕捉或者造成主程序报错。
-> 动态类型：
-列表可以通过引用其元素，改变对象自身(in-place change)。这种对象类型，称为可变数据对象(mutable object)，词典也是这样的数据类型。
-而像之前的数字和字符串，不能改变对象本身，只能改变引用的指向，称为不可变数据对象(immutable object)。
-我们之前学的元组(tuple)，尽管可以调用引用元素，但不可以赋值，因此不能改变对象自身，所以也算是immutable object。
-> 从动态类型看函数的参数传递：函数的参数传递，本质上传递的是引用。
-如果传递的是可变(mutable)的对象，那么改变函数参数，有可能改变原对象。所有指向原对象的引用都会受影响。
+    - 循环设计：range、enumerate、zip
+    - 循环对象: 包含有一个next()方法的对象
+    - 迭代器: 要将循环对象转换成迭代器(iterator)。这一转换是通过使用iter()函数实现的。
+    - 生成器：生成器的编写方法和函数定义类似，只是在return的地方改为yield。
+    - 表推导：表推导(list comprehension)是快速生成表的方法。
+    - 函数对象：lambda函数、函数作为参数传递、map()函数、filter()函数、reduce()函数
+    - 错误处理：
+    - 异常处理：
+
+            抛出异常：如果无法将异常交给合适的对象，异常将继续向上层抛出，直到被捕捉或者造成主程序报错。
+    - 动态类型：
+
+            列表可以通过引用其元素，改变对象自身(in-place change)。这种对象类型，称为可变数据对象(mutable object)，词典也是这样的数据类型。
+            数字和字符串，不能改变对象本身，只能改变引用的指向，称为不可变数据对象(immutable object)。
+            元组(tuple)，尽管可以调用引用元素，但不可以赋值，因此不能改变对象自身，所以也算是immutable object。
+    - 从动态类型看函数的参数传递：函数的参数传递，本质上传递的是引用。
+
+            如果传递的是可变(mutable)的对象，那么改变函数参数，有可能改变原对象。所有指向原对象的引用都会受影响。
+
 - Python深入（上）
-> 运算符: Python的运算符是通过调用对象的特殊方法实现的.
-内置函数：len()
-表元素引用：list.__getitem__(3)
-对象的属性：
+    - 运算符: Python的运算符是通过调用对象的特殊方法实现的.
+    - 内置函数：len()
+    - 表元素引用：list.__getitem__(3)
+    - 对象的属性：
 
 - Python深入（下）
->
+
 
 - Python补充
->序列的方法
-len(s)         返回： 序列中包含元素的个数
-min(s)         返回： 序列中最小的元素
-max(s)         返回： 序列中最大的元素
-all(s)         返回： True, 如果所有元素都为True的话
-any(s)         返回： True, 如果任一元素为True的话
-sum(s)         返回：序列中所有元素的和
-s.count(x)     返回： x在s中出现的次数
-s.index(x)     返回： x在s中第一次出现的下标
-以下只适合表：
-l.extend(l2)        在表l的末尾添加表l2的所有元素
-l.append(x)         在l的末尾附加x元素
-l.sort()            对l中的元素排序
-l.reverse()         将l中的元素逆序
-l.pop()             返回：表l的最后一个元素，并在表l中删除该元素
-del l[i]            删除该元素
-以下用于字符串：
-str为一个字符串，sub为str的一个子字符串。s为一个序列，它的元素都是字符串。width为一个整数，用于说明新生成字符串的宽度。
-str.count(sub)       返回：sub在str中出现的次数
-str.find(sub)        返回：从左开始，查找sub在str中第一次出现的位置。如果str中不包含sub，返回 -1
-str.index(sub)       返回：从左开始，查找sub在str中第一次出现的位置。如果str中不包含sub，举出错误
-str.rfind(sub)       返回：从右开始，查找sub在str中第一次出现的位置。如果str中不包含sub，返回 -1
-str.rindex(sub)      返回：从右开始，查找sub在str中第一次出现的位置。如果str中不包含sub，举出错误
-str.isalnum()        返回：True， 如果所有的字符都是字母或数字
-str.isalpha()        返回：True，如果所有的字符都是字母
-str.isdigit()        返回：True，如果所有的字符都是数字
-str.istitle()        返回：True，如果所有的词的首字母都是大写
-str.isspace()        返回：True，如果所有的字符都是空格
-str.islower()        返回：True，如果所有的字符都是小写字母
-str.isupper()        返回：True，如果所有的字符都是大写字母
-str.split([sep, [max]])    返回：从左开始，以空格为分割符(separator)，将str分割为多个子字符串，总共分割max次。将所得的子字符串放在一个表中返回。可以str.split(',')的方式使用逗号或者其它分割符
-str.rsplit([sep, [max]])   返回：从右开始，以空格为分割符(separator)，将str分割为多个子字符串，总共分割max次。将所得的子字符串放在一个表中返回。可以str.rsplit(',')的方式使用逗号或者其它分割符
-str.join(s)                返回：将s中的元素，以str为分割符，合并成为一个字符串。
-str.strip([sub])           返回：去掉字符串开头和结尾的空格。也可以提供参数sub，去掉位于字符串开头和结尾的sub
-str.replace(sub, new_sub)  返回：用一个新的字符串new_sub替换str中的sub
-str.capitalize()           返回：将str第一个字母大写
-str.lower()                返回：将str全部字母改为小写
-str.upper()                返回：将str全部字母改为大写
-str.swapcase()             返回：将str大写字母改为小写，小写改为大写
-str.title()                返回：将str的每个词(以空格分隔)的首字母大写
-str.center(width)          返回：长度为width的字符串，将原字符串放入该字符串中心，其它空余位置为空格。
-str.ljust(width)           返回：长度为width的字符串，将原字符串左对齐放入该字符串，其它空余位置为空格。
-str.rjust(width)           返回：长度为width的字符串，将原字符串右对齐放入该字符串，其它空余位置为空格。
+    - 序列的方法
 
->Python小技巧
-import模块
+            len(s)         返回： 序列中包含元素的个数
+            min(s)         返回： 序列中最小的元素
+            max(s)         返回： 序列中最大的元素
+            all(s)         返回： True, 如果所有元素都为True的话
+            any(s)         返回： True, 如果任一元素为True的话
+            sum(s)         返回：序列中所有元素的和
+            s.count(x)     返回： x在s中出现的次数
+            s.index(x)     返回： x在s中第一次出现的下标
+
+    - 以下只适合表：
+
+            l.extend(l2)        在表l的末尾添加表l2的所有元素
+            l.append(x)         在l的末尾附加x元素
+            l.sort()            对l中的元素排序
+            l.reverse()         将l中的元素逆序
+            l.pop()             返回：表l的最后一个元素，并在表l中删除该元素
+            del l[i]            删除该元素
+
+    - 以下用于字符串：
+
+            str为一个字符串，sub为str的一个子字符串。s为一个序列，它的元素都是字符串。width为一个整数，用于说明新生成字符串的宽度。
+            str.count(sub)       返回：sub在str中出现的次数
+            str.find(sub)        返回：从左开始，查找sub在str中第一次出现的位置。如果str中不包含sub，返回 -1
+            str.index(sub)       返回：从左开始，查找sub在str中第一次出现的位置。如果str中不包含sub，举出错误
+            str.rfind(sub)       返回：从右开始，查找sub在str中第一次出现的位置。如果str中不包含sub，返回 -1
+            str.rindex(sub)      返回：从右开始，查找sub在str中第一次出现的位置。如果str中不包含sub，举出错误
+            str.isalnum()        返回：True， 如果所有的字符都是字母或数字
+            str.isalpha()        返回：True，如果所有的字符都是字母
+            str.isdigit()        返回：True，如果所有的字符都是数字
+            str.istitle()        返回：True，如果所有的词的首字母都是大写
+            str.isspace()        返回：True，如果所有的字符都是空格
+            str.islower()        返回：True，如果所有的字符都是小写字母
+            str.isupper()        返回：True，如果所有的字符都是大写字母
+            str.split([sep, [max]])    返回：从左开始，以空格为分割符(separator)，将str分割为多个子字符串，总共分割max次。将所得的子字符串放在一个表中返回。可以str.split(',')的方式使用逗号或者其它分割符
+            str.rsplit([sep, [max]])   返回：从右开始，以空格为分割符(separator)，将str分割为多个子字符串，总共分割max次。将所得的子字符串放在一个表中返回。可以str.rsplit(',')的方式使用逗号或者其它分割符
+            str.join(s)                返回：将s中的元素，以str为分割符，合并成为一个字符串。
+            str.strip([sub])           返回：去掉字符串开头和结尾的空格。也可以提供参数sub，去掉位于字符串开头和结尾的sub
+            str.replace(sub, new_sub)  返回：用一个新的字符串new_sub替换str中的sub
+            str.capitalize()           返回：将str第一个字母大写
+            str.lower()                返回：将str全部字母改为小写
+            str.upper()                返回：将str全部字母改为大写
+            str.swapcase()             返回：将str大写字母改为小写，小写改为大写
+            str.title()                返回：将str的每个词(以空格分隔)的首字母大写
+            str.center(width)          返回：长度为width的字符串，将原字符串放入该字符串中心，其它空余位置为空格。
+            str.ljust(width)           返回：长度为width的字符串，将原字符串左对齐放入该字符串，其它空余位置为空格。
+            str.rjust(width)           返回：长度为width的字符串，将原字符串右对齐放入该字符串，其它空余位置为空格。
+
+    - Python小技巧
+    import模块
 
 
 查询
@@ -180,4 +198,5 @@ Python内置函数清单
 格式符
 
 
-
+- Python标准库（上）
+    - 正则表达式 (re包)
