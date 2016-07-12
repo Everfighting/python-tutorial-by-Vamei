@@ -4,6 +4,7 @@
     - 添加注释：#!/usr/bin/env python 变成可执行脚本
     - 修改文件权限：chmod 755 hello.py （r:4 w:2 x:1）
     - 执行脚本：./hello.py （仅linux系统）
+    - tuple元素不可变，list元素可变
 
 - Python基础（下）
     - 循环：
@@ -19,9 +20,13 @@
                     continue
                 print i
 
+            中断条件：
+                continue 跳过这一环，进行下一环的操作
+                break 停止执行整个循环
+
     - 函数：
 
-            1、值传递与指针传递
+            1、值传递与指针传递的区别
             2、类、属性
             3、方法
             4、继承
