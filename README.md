@@ -92,12 +92,12 @@
                 传递方式可混合，顺序原则为：先位置，再关键字，再包裹位置，再包裹关键字。
 
 - 4.Python进阶（下）
-    - 循环设计：range、enumerate、zip
-    - 循环对象: 包含有一个next()方法的对象
+    - 循环设计(py)：range、enumerate、zip
+    - 循环对象(py): 包含有一个next()方法的对象
     - 迭代器: 要将循环对象转换成迭代器(iterator)。这一转换是通过使用iter()函数实现的。
-    - 生成器：生成器的编写方法和函数定义类似，只是在return的地方改为yield。
-    - 表推导：表推导(list comprehension)是快速生成表的方法。
-    - 函数对象：lambda函数、函数作为参数传递、map()函数、filter()函数、reduce()函数
+    - 生成器(py)：生成器的编写方法和函数定义类似，只是在return的地方改为yield。
+    - 表推导(py)：表推导(list comprehension)是快速生成表的方法。
+    - 函数对象(py)：lambda函数、函数作为参数传递、map()函数、filter()函数、reduce()函数
     - 错误处理：
     - 异常处理：
 
