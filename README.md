@@ -4,7 +4,29 @@
     - 添加注释：#!/usr/bin/env python 变成可执行脚本
     - 修改文件权限：chmod 755 hello.py （r:4 w:2 x:1）
     - 执行脚本：./hello.py （仅linux系统）
-    - tuple元素不可变，list元素可变
+    - Python序列包括：字符串、列表、元组。元组元素不可变，列表元素可变。
+    - 短路逻辑：
+
+            表达式从左至右运算，若 or 的左侧逻辑值为 True ，则短路 or 后所有的表达式（不管是 and 还是 or），直接输出 or 左侧表达式 。
+            表达式从左至右运算，若 and 的左侧逻辑值为 False ，则短路其后所有 and 表达式，直到有 or 出现，输出 and 左侧表达式到 or 的左侧，参与接下来的逻辑运算。
+            若 or 的左侧为 False ，或者 and 的左侧为 True 则不能使用短路逻辑。
+
+            - 举例如下：
+            >>>not 1 or 0 and 1 or 3 and 4 or 5 and 6 or 7 and 8 and 9
+            >>>4
+            分析：
+            1.按优先级加括号（not > and > or）
+            (not 1) or (0 and 1) or (3 and 4) or (5 and 6) or (7 and 8 and 9)
+
+            2.逻辑运算
+            规则如下：
+            x and y	布尔"与" - 如果 x 为 False，x and y 返回 False，否则它返回 y 的计算值。
+            x or y	布尔"或" - 如果 x 是非 0，它返回 x 的值，否则它返回 y 的计算值。
+            not x	布尔"非" - 如果 x 为 True，返回 False 。如果 x 为 False，它返回 True。
+            上式等价于 0 or 0 or 4 or 6 or 9
+
+            3.短路逻辑
+            根据短路逻辑：结果为4
 
 - Python基础（下）
     - 循环：
@@ -29,40 +51,42 @@
             1、值传递与指针传递的区别
                 对于基本数据类型的变量，变量传递给函数之后，函数会在内存中复制一个新的变量，从而不影响原来的变量。（值传递）
                 对于表来说，表传递给函数的是一个指针，指针指向的是序列在内存中的位置，在函数中对表的操作将在原有内存中进行，从而影响原有变量。（指针传递）
-
             2、类、属性
-            3、方法
-            4、继承
+            3、方法：具有“行为”的属性
+            4、继承：子类享有父类的所有属性
 
-- 面向对象的进一步拓展：
+    - 面向对象的进一步拓展
 
-        1、调用其他信息
-        2、__init()__
-        3、对象的性质
-        4、内置函数：dir() 查询属性和 help()查询说明文档
+            1、调用其他信息
+            2、__init()__
+            3、对象的性质
+            4、内置函数：dir() 查询属性和 help()查询说明文档
 
 - Python进阶(上)
     - 字典：
 
-            >>>print dic.keys()           # 返回dic所有的键
-            >>>print dic.values()         # 返回dic所有的值
-            >>>print dic.items()          # 返回dic所有的元素（键值对）
-            >>>dic.clear()                # 清空dic，dict变为{}
-            >>>del dic['tom']             # 删除 dic 的‘tom’元素
-            >>>print len(dic)             # 字典中元素个数
+            print dic.keys()           # 返回dic所有的键
+            print dic.values()         # 返回dic所有的值
+            print dic.items()          # 返回dic所有的元素（键值对）
+            dic.clear()                # 清空dic，dic变为{}
+            del dic['tom']             # 删除 dic 的‘tom’元素
+            print len(dic)             # 字典中元素个数
     - 文本文件的输入输出:
 
             文本读取
-            >>>f = open('test.txt','r')
-            >>>content = f.read(N)
-            >>>content = f.readline()
-            >>>content = f.readlines()
+            f = open('test.txt','r')
+            content = f.read(N)
+            content = f.readline()
+            content = f.readlines()
 
             文本写入
-            >>>f.write('I like apple!\n')
+            f.write('I like apple!\n')
 
             关闭文件
-            >>>f.close()
+            f.close()
+
+            with可以自动关闭
+            with open('/etc/passwd') as
 
     - 模块：
         - 模块引入方式：
@@ -76,6 +100,14 @@
                 程序所在的文件夹
                 操作系统环境变量PYTHONPATH所包含的路径
                 标准库的安装路径
+
+        - 模块包：
+
+                功能相似的模块放在同一个文件夹中
+                每个文件夹中必须包含__init__.py的文件
+                __init__.py可以是空文件
+
+
 
     - 函数参数传递：传递方式可混合，顺序原则为：先位置，再关键字，再包裹位置，再包裹关键字。
 
