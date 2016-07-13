@@ -12,3 +12,5 @@ summer = chicken(2)
 print(bird.__dict__)
 print(chicken.__dict__)
 print(summer.__dict__)
+
+# 暂时么搞懂
