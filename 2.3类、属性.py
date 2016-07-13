@@ -6,7 +6,8 @@ class Bird(object):
     have_feather = True
     way_of_reproduction  = 'egg'
 
+# 对属性的引用是通过 对象.属性（object.attribute） 的形式实现的。
 summer = Bird()
 print summer.way_of_reproduction
 print summer.have_feather
-# 对属性的引用是通过 对象.属性（object.attribute） 的形式实现的。
+
