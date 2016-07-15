@@ -8,4 +8,3 @@ def test(f, a, b):
 
 test(func, 3, 5)
 
-filter((lambda x,y:x+y),1,3)

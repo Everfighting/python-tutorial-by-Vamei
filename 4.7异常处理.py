@@ -17,7 +17,6 @@ except:
     print("Not Type Error & Error noted")
 
 
-
 def test_func():
     try:
         m = 1/0
