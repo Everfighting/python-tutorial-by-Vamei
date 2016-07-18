@@ -183,10 +183,10 @@
         - 闭包：在Python中一个包含有环境变量取值的函数对象。
         - 闭包与并行运算：通过闭包实现流水线式计算。
     - 装饰器：
-        - 装饰函数和方法***(没懂)
+        - 装饰函数和方法
         - 含参装饰器
         - 装饰类
-    - 内存管理(后续补充)：
+    - 内存管理：
         - 对象的内存使用
         - 对象引用对象
         - 引用减少
@@ -203,9 +203,6 @@
                 max(s)         返回： 序列中最大的元素
                 all(s)         返回： True, 如果所有元素都为True的话
                 any(s)         返回： True, 如果任一元素为True的话
-                sum(s)         返回： 序列中所有元素的和
-                s.count(x)     返回： x在s中出现的次数
-                s.index(x)     返回： x在s中第一次出现的下标
 
         - 查询功能函数，不改变序列本身, 可用于表和定值表:
 
@@ -221,6 +218,7 @@
                 l.reverse()         将l中的元素逆序
                 l.pop()             返回：表l的最后一个元素，并在表l中删除该元素
                 del l[i]            删除该元素
+                以上操作会对表本身产生影响，不是生成新表。
 
         - 以下用于字符串：
 
@@ -253,31 +251,168 @@
 
     - Python小技巧
         - import模块
+            - import TestLib as test # 引用TestLib模块，并将它改名为test
+            - from TestLib import lib_func # 只引用TestLib中的lib_func对象，并跳过TestLib引用字段,减少内存占用
+            - from TestLib import * # 引用所有TestLib中的对象，并跳过TestLib引用字段
         - 查询
             - 查询函数的参数
+
+                    import inspect
+                    print(inspect.getargspec(func))
+
             - 查询对象的属性
+
+                    除了使用dir()来查询对象的属性之外，还可以使用hasattr函数来确认一个对象是否具有某个属性：
+                    a = [1,2,3]
+                    print(hasattr(a,'append'))
+
             - 查询对象所属的类和类名称
+
+                    a = [1, 2, 3]
+                    print a.__class__
+                    print a.__class__.__name__
+
             - 查询父类
 
-        - 使用中文(以及其它非ASCII编码)
+                    可以用 __base__ 属性来查询某个类的父类：
+                    print(list.__base__)
+
+        - 使用中文:
+
+                #coding=utf8
+                #-*- coding: UTF-8 -*-
+
         - 表示2进制，8进制和16进制数字
+
+                print(0b1110)     # 二进制，以0b开头
+                print(0o10)       # 八进制，以0o开头
+                print(0x2A)       # 十六进制，以0x开头
+
         - 注释
+
+                一行内的注释可以以#开始。
+                多行的注释可以以'''开始，以'''结束
+
         - 搜索路径
+
+                当我们import的时候，Python会在搜索路径中查找模块(module)。
+                shell中增加PYTHONPATH环境变量:
+                $export PYTHONPATH=$PYTHONPATH:/home/vamei/mylib
+
         - 脚本与命令行结合
+
+                在脚本运行结束后，直接进入Python命令行。
+                $python -i script.py
+
         - 安装非标准包
+
+                (1)、使用Linux repository (Linux环境)
+                (2)、使用pip
+                        $pip install -i http://mirrors.aliyuncs.com/pypi/simple web.py
+                        $pip uninstall web.py
+                        $pip install -i http://mirrors.aliyuncs.com/pypi/simple --upgrade web.py
+                (3)、从源码编译
 
     - Python内置函数清单
         - 数学运算
+
+                abs(-5)                          # 取绝对值，也就是5
+                round(2.6)                       # 四舍五入取整，也就是3.0
+                pow(2, 3)                        # 相当于2**3，如果是pow(2, 3, 5)，相当于2**3 % 5
+                cmp(2.3, 3.2)                    # 比较两个数的大小
+                divmod(9,2)                      # 返回除法结果和余数
+                max([1,5,2,9])                   # 求最大值
+                min([9,2,-4,2])                  # 求最小值
+                sum([2,-1,9,12])                 # 求和
+
         - 类型转换
+
+                int("5")                         # 转换为整数 integer
+                float(2)                         # 转换为浮点数 float
+                long("23")                       # 转换为长整数 long integer
+                str(2.3)                         # 转换为字符串 string
+                complex(3, 9)                    # 返回复数 3 + 9i
+
+                ord("A")                         # "A"字符对应的数值
+                chr(65)                          # 数值65对应的字符
+                unichr(65)                       # 数值65对应的unicode字符
+
+                bool(0)                          # 转换为相应的真假值，在Python中，0相当于False .在Python中，下列对象都相当于False：** [], (), {}, 0, None, 0.0, '' **
+
+                bin(56)                          # 返回一个字符串，表示56的二进制数
+                hex(56)                          # 返回一个字符串，表示56的十六进制数
+                oct(56)                          # 返回一个字符串，表示56的八进制数
+
+                list((1,2,3))                    # 转换为表 list
+                tuple([2,3,4])                   # 转换为定值表 tuple
+                slice(5,2,-1)                    # 构建下标对象 slice
+                dict(a=1,b="hello",c=[1,2,3])    # 构建词典 dictionary
+
         - 序列操作
+
+                all([True, 1, "hello!"])         # 是否所有的元素都相当于True值
+                any(["", 0, False, [], None])    # 是否有任意一个元素相当于True值
+
+                sorted([1,5,3])                  # 返回正序的序列，也就是[1,3,5]
+                reversed([1,5,3])                # 返回反序的序列，也就是[3,5,1]
+
         - 类、对象、属性
+
+                hasattr(me, "test")               # 检查me对象是否有test属性
+                getattr(me, "test")               # 返回test属性
+                setattr(me, "test", new_test)     # 将test属性设置为new_test
+                delattr(me, "test")               # 删除test属性
+                isinstance(me, Me)                # me对象是否为Me类生成的对象 (一个instance)
+                issubclass(Me, object)            # Me类是否为object类的子类
+
         - 编译、执行
+
+                repr(me)                          # 返回对象的字符串表达
+                compile("print('Hello')",'test.py','exec')       # 编译字符串成为code对象
+                eval("1 + 1")                     # 解释字符串表达式。参数也可以是compile()返回的code对象
+                exec("print('Hello')")            # 解释并执行字符串，print('Hello')。参数也可以是compile()返回的code对象
+
         - 其他
+
+                input("Please input:")            # 等待输入
+
+                globals()                         # 返回全局命名空间，比如全局变量名，全局函数名
+                locals()                          # 返回局部命名空间
 
     - 字符串格式化（%操作符)
         - 模板
+
+                print("I'm %s. I'm %d year old" % ('Vamei', 99))
+                a = "I'm %s. I'm %d year old" % ('Vamei', 99)
+                print (a)
+                print("I'm %(name)s. I'm %(age)d year old" % {'name':'Vamei', 'age':99})
+
         - 格式符
 
+                %s    字符串 (采用str()的显示)
+                %r    字符串 (采用repr()的显示)
+                %c    单个字符
+                %b    二进制整数
+                %d    十进制整数
+                %i    十进制整数
+                %o    八进制整数
+                %x    十六进制整数
+                %e    指数 (基底写为e)
+                %E    指数 (基底写为E)
+                %f    浮点数
+                %F    浮点数，与上相同
+                %g    指数(e)或浮点数 (根据显示长度)
+                %G    指数(E)或浮点数 (根据显示长度)
+
+                %%    字符"%"
+
+        - 格式符进阶
+
+                %[(name)][flags][width].[precision]typecode
+                举例：
+                print("%+10x" % 10)
+                print("%04d" % 5)
+                print("%6.3f" % 2.3)
 
 - 8.Python标准库（上）
     - 正则表达式 (re包)
