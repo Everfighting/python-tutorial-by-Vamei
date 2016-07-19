@@ -435,4 +435,19 @@
     - 数据库 (sqlite3)
 
 - 11.Python网络
+    -原始Python服务器
+
+        TCP/IP和socket
+        TCP socket
+        基于TCP socket的HTTP服务器
+        深入HTTP服务器程序
+        使用浏览器实验
+        探索的方向
+
+    -Python服务器进化
+
+        支持POST
+        使用SocketServer
+        SimpleHTTPServer: 使用静态文件来回应请求
+        CGIHTTPServer：使用静态文件或者CGI来回应请求
 
